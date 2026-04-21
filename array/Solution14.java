@@ -1,0 +1,39 @@
+package array;
+
+//14. Longest Common Prefix
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution14 {
+    public String longestCommonPrefix(String[] strs) {
+        if(strs == null || strs.length == 0) {
+            return "";
+        }
+
+        int minLength = Integer.MAX_VALUE;
+        for(String s : strs) {
+            if(s.length() < minLength) {
+                minLength = s.length();
+            }
+        }
+
+        int i = 0;
+        while(i < minLength) {
+            for(String s : strs) {
+                if(s.charAt(i) != strs[0].charAt(i)) {
+                    return strs[0].substring(0, i);
+                }
+            }
+            i++;
+        }
+        return strs[0].substring(0, i);
+    }
+
+    public static void main(String[] args) {
+        Solution14 sol = new Solution14();
+        String[] strs = {"flower","flow","flight"};
+        String prefix = sol.longestCommonPrefix(strs);
+        System.out.print(prefix);
+    }
+}
