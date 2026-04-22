@@ -12,7 +12,7 @@ public class Solution303 {
         for(int i = 0; i < nums.length; i++) {
             prefix[i+1] = prefix[i] + nums[i];
         }
-        return prefix[right+1] + prefix[left];
+        return prefix[right+1] - prefix[left];
     }
     public static void main(String[] args) {
         int[] nums = {-2, 0, 3, -5, 2, -1};
